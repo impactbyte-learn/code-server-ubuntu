@@ -1,0 +1,9 @@
+{
+  "name": "code-server-ubuntu",
+  "version": "0.1.0",
+  "description": "Code Server Ubuntu",
+  "main": "index.js",
+  "author": "M Haidar Hanif <git@mhaidarhanif.com>",
+  "license": "MIT",
+  "private": true
+}
