@@ -6,23 +6,23 @@ Create a Ubuntu VPS using Digital Ocean, Linode, or Amazon Lightsail.
 
 Setup SSH key into that server when creating.
 
-Connect to that server using `root` access and change its password.
+### Connect to that server using `root` access and change its password
 
 ```sh
 ssh root@255.255.255.255
 passwd
 ```
 
-When the connection hang up, force close it by pressing `Enter ~.`.
+Whenever the connection hang up, force close it by pressing `Enter ~.`.
 
-Create new user and add it to `sudo` group.
+### Create new user and add it to `sudo` group
 
 ```sh
 adduser yourusername
 usermod -aG sudo yourusername
 ```
 
-Copy your SSH key from your computer.
+### Copy your SSH key from your computer
 
 ```sh
 # copy using mac
@@ -32,17 +32,17 @@ pbcopy < ~/.ssh/id_rsa.pub
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
-Paste that into that user
+### Paste that into that user
 
 ```sh
-mkdir /home/yourusername/.ssh`
+mkdir /home/yourusername/.ssh
 
 vim /home/yourusername/.ssh/authorized_keys
 
 # add your SSH key into it
 ```
 
-Connect again using `yourusername` access.
+### Connect again using `yourusername` access
 
 ```sh
 ssh yourusername@255.255.255.255
@@ -51,32 +51,39 @@ ssh yourusername@255.255.255.255
 sudo ls -la /root
 ```
 
-Install MariaDB/MySQL server & mycli.
+### Install MariaDB/MySQL server & mycli
 
 ```sh
 # update packages
 sudo apt update
 
 # install
-sudo apt install mariadb-server mycli
+sudo apt install zsh mariadb-server mycli
 
 # run secure setup
 sudo mysql_secure_installation
 ```
 
-Restart database server if necessary.
+### Restart database server if necessary
 
 ```sh
 service mysql restart
 ```
 
-Verify that MariaDB is operational.
+### Verify that MariaDB is operational by checking the service status
 
 ```sh
-# check the service status
+# on linux
 systemctl status mariadb.service
 
-# loging using root and secure setup password
+# on macos
+brew services list | grep mariadb
+launchctl list | grep mariadb
+```
+
+### Login using root and secured setup password
+
+```sh
 sudo mysql -u root -p
 ```
 
