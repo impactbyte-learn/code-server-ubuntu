@@ -1,5 +1,7 @@
 # Code Server Ubuntu
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/impactbyte-learn/code-server-ubuntu.svg)](https://greenkeeper.io/)
+
 ## Getting Started
 
 Create a Ubuntu VPS using Digital Ocean, Linode, or Amazon Lightsail.
